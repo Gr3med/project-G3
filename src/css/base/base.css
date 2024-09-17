@@ -1,0 +1,318 @@
+/* General styles */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: #181820;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Left Sidebar */
+.leftbar {
+    background-color: #2A2A3C;
+    width: 262px;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #B4B4CE;
+    margin-bottom: 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 20px;
+    color: #B4B4CE;
+}
+
+/* Dark/Light Theme Switch */
+.theme-div, .hide-sidebar {
+    margin-top: auto;
+    padding: 10px 0;
+}
+
+/* Topbar */
+.topbar {
+    background-color: #2A2A3C;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 262px;
+    width: calc(100% - 262px);
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h1 {
+    color: white;
+    font-size: 24px;
+}
+
+.topbar button {
+    border-radius: 33px;
+    background-color: rgb(83, 20, 143);
+    width: 161px;
+    height: 50px;
+    color: white;
+    border: none;
+}
+
+/* Kanban Board */
+.kanban-board {
+    display: flex;
+    gap: 40px;
+    margin: 100px 40px 40px 302px;
+    flex-wrap: wrap;
+}
+
+.kanban-column {
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.kanban-column h2 {
+    color: #A1A1B1;
+    margin-bottom: 10px;
+    font-size: 16px;
+    letter-spacing: 0.75px;
+}
+
+.task-card {
+    background-color: #333344;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: rgb(229, 221, 221);
+}
+
+/* Add New Column */
+.add-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(242, 242, 242, 0.25);
+    padding: 50px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_wrapper {
+    position: absolute;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal_title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form_group {
+    margin-bottom: 20px;
+}
+
+.form_label {
+    font-size: 12px;
+    color: black;
+}
+
+.form_input {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #B4B4CE;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .leftbar {
+        width: 80px;
+    }
+
+    .kanban-board {
+        margin: 100px 20px 20px 100px;
+        gap: 20px;
+    }
+
+    .topbar {
+        left: 80px;
+        width: calc(100% - 80px);
+    }
+
+    .task-card {
+        font-size: 14px;
+    }
+}
+/* General styles */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: #181820;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Left Sidebar */
+.leftbar {
+    background-color: #2A2A3C;
+    width: 262px;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    transition: left 0.3s ease;
+    z-index: 10;
+}
+
+/* إخفاء الـ leftbar في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .leftbar {
+        left: -262px; /* قم بإخفاء الـ leftbar */
+    }
+}
+
+/* عندما يكون الـ leftbar مفتوح في الشاشات الصغيرة */
+.leftbar.open {
+    left: 0; /* عرض الـ leftbar */
+}
+
+/* Icon for opening menu */
+.menu-icon {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+    cursor: pointer;
+}
+
+/* عرض أيقونة القائمة في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .topbar {
+        left: 0;
+        width: 100%;
+    }
+}
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #2A2A3C;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    color: white;
+  }
+  
+  /* Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input[type="text"],
+  textarea,
+  select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #3E3E4E;
+    color: white;
+  }
+  
+  button[type="submit"] {
+    padding: 10px;
+    background-color: #635FC7;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #4a47a3;
+  }
+  
+  #addSubtaskBtn {
+    background-color: #3E3E4E;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #addSubtaskBtn:hover {
+    background-color: #56546E;
+  }
+  
+

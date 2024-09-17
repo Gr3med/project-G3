@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Task Management Web App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- زر القائمة الذي يظهر في الشاشات الصغيرة -->
+    <div class="menu-icon" id="menu-icon">
+        <img src="../assets/icons/menu_32.png" alt="Menu">
+    </div>
+
+    <div class="leftbar" id="leftbar">
+        <div class="logo">
+            <img src="../assets/icons/logo-light.svg" alt="Logo">
+        </div>
+        <p>All Boards (8)</p>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="../assets/icons/icon-board.svg" alt=""> Platform Launch</a></li>
+                <li><a href="#"><img src="../assets/icons/icon-board.svg" alt=""> Marketing Plan</a></li>
+                <li><a href="#"><img src="../assets/icons/icon-board.svg" alt=""> Roadmap</a></li>
+                <li><a href="#"><img src="../assets/icons/icon-board.svg" alt=""> + Create New Board</a></li>
+            </ul>
+        </nav>
+
+        <!-- Dark/Light Theme Switch -->
+        <div class="theme-div">
+            <img src="../assets/icons/icon-light-theme.svg" class="icon" alt="Light Theme">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <img src="../assets/icons/icon-dark-theme.svg" class="icon" alt="Dark Theme">
+        </div>
+
+        <!-- Hide Sidebar Option -->
+        <div class="hide-sidebar">
+            <img src="../assets/icons/icon-hide-sidebar.svg" class="icon" alt="Hide Sidebar" id="hide-icon">
+            <input type="checkbox" id="hide">
+            <label for="hide">Hide Sidebar</label>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <h1>Platform Launch</h1>
+        <!-- Add New Task Button -->
+<button class="add-task" id="addTaskBtn">+ Add New Task</button>
+
+<!-- Task Modal -->
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Add New Task</h2>
+    <form>
+      <label for="taskTitle">Title</label>
+      <input type="text" id="taskTitle" name="title" placeholder="e.g. Take coffee break">
+
+      <label for="taskDescription">Description</label>
+      <textarea id="taskDescription" name="description" placeholder="e.g. It's always good to take a break."></textarea>
+
+      <label for="subtasks">Subtasks</label>
+      <div id="subtaskList">
+        <input type="text" name="subtask" placeholder="e.g. Make coffee">
+        <input type="text" name="subtask" placeholder="e.g. Drink coffee & smile">
+      </div>
+      <button id="addSubtaskBtn" type="button">+ Add New Subtask</button>
+
+      <label for="taskStatus">Status</label>
+      <select id="taskStatus" name="status">
+        <option value="todo">Todo</option>
+        <option value="doing">Doing</option>
+        <option value="done">Done</option>
+      </select>
+
+      <button type="submit">Create Task</button>
+    </form>
+  </div>
+</div>
+
+        <img src="../assets/icons/icon-vertical-ellipsis.svg" alt="Options">
+    </div>
+
+    <!-- Kanban Board -->
+    <div class="kanban-board">
+        <!-- TODO Column -->
+        <div class="kanban-column">
+            <h2>TODO (4)</h2>
+            <div class="task-card">Build UI for onboarding flow<h4>0 of 3 subtasks</h4></div>
+            <div class="task-card">Build UI for search<h4>0 of 1 subtasks</h4></div>
+            <div class="task-card">Build settings UI<h4>0 of 2 subtasks</h4></div>
+            <div class="task-card">QA and test all major user journeys<h4>0 of 2 subtasks</h4></div>
+        </div>
+
+        <!-- DOING Column -->
+        <div class="kanban-column">
+            <h2>DOING (6)</h2>
+            <div class="task-card">Design settings and search pages<h4>0 of 3 subtasks</h4></div>
+            <div class="task-card">Add account management endpoints<h4>1 of 3 subtasks</h4></div>
+            <div class="task-card">Design onboarding flow<h4>2 of 3 subtasks</h4></div>
+            <div class="task-card">Add search endpoints<h4>3 of 3 subtasks</h4></div>
+            <div class="task-card">Add authentication endpoints<h4>4 of 3 subtasks</h4></div>
+            <div class="task-card">Research pricing points<h4>5 of 3 subtasks</h4></div>
+        </div>
+
+        <!-- DONE Column -->
+        <div class="kanban-column">
+            <h2>DONE (7)</h2>
+            <div class="task-card">Conduct 5 wireframe tests<h4>0 of 3 subtasks</h4></div>
+            <div class="task-card">Create wireframe prototype<h4>1 of 3 subtasks</h4></div>
+            <div class="task-card">Review results of usability tests<h4>2 of 3 subtasks</h4></div>
+            <div class="task-card">Create paper prototypes<h4>3 of 3 subtasks</h4></div>
+            <div class="task-card">Market discovery<h4>4 of 3 subtasks</h4></div>
+            <div class="task-card">Competitor analysis<h4>5 of 3 subtasks</h4></div>
+            <div class="task-card">Research the market<h4>6 of 3 subtasks</h4></div>
+        </div>
+
+        <!-- Add New Column -->
+        <div class="add-column">
+            <h1>+ New Column</h1>
+        </div>
+        
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
